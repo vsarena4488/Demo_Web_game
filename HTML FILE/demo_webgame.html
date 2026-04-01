@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors Game</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="demo_webgame.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Animated Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <div class="game-container">
+        <!-- Header -->
+        <div class="game-header">
+            <h1 class="game-title">Rock Paper Scissors</h1>
+            <p class="game-subtitle">Challenge the computer — Best of luck!</p>
+        </div>
+
+        <!-- Scoreboard -->
+        <div class="container">
+            <div class="scoreboard">
+                <div class="row align-items-center text-center">
+                    <div class="col">
+                        <div class="score-label">You</div>
+                        <div class="score-value score-player" id="playerScore">0</div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="score-label">Draws</div>
+                        <div class="score-value score-draw" id="drawScore">0</div>
+                        <div class="vs-badge mx-auto mt-2">
+                            <span id="roundNumber">0</span>
+                        </div>
+                        <div class="score-label mt-1">Round</div>
+                    </div>
+                    <div class="col">
+                        <div class="score-label">Computer</div>
+                        <div class="score-value score-computer" id="computerScore">0</div>
+                    </div>
+                </div>
+                <!-- Streak -->
+                <div class="text-center">
+                    <div class="streak-badge" id="streakBadge" style="display: none;">
+                        <i class="bi bi-fire"></i>
+                        <span id="streakText"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Battle Arena -->
+            <div class="battle-arena">
+                <div class="text-center">
+                    <div class="battle-choice player-choice" id="playerBattle">
+                        <span>❓</span>
+                        <span class="choice-label" style="color: #2ecc71;">You</span>
+                    </div>
+                </div>
+                <div class="battle-vs">⚔️</div>
+                <div class="text-center">
+                    <div class="battle-choice computer-choice" id="computerBattle">
+                        <span>❓</span>
+                        <span class="choice-label" style="color: #e74c3c;">Computer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Message -->
+            <div class="result-message" id="resultArea">
+                <div class="result-text" style="color: rgba(255,255,255,0.3);">Make Your Move!</div>
+                <div class="result-detail">Choose rock, paper, or scissors below</div>
+            </div>
+
+            <!-- Choice Buttons -->
+            <div class="choices-section">
+                <div class="choices-label">Choose your weapon</div>
+                <div class="d-flex justify-content-center flex-wrap gap-3">
+                    <button class="choice-btn rock-btn" onclick="playGame('rock')" id="rockBtn">
+                        <span class="choice-emoji">🪨</span>
+                        <span class="choice-name">Rock</span>
+                    </button>
+                    <button class="choice-btn paper-btn" onclick="playGame('paper')" id="paperBtn">
+                        <span class="choice-emoji">📄</span>
+                        <span class="choice-name">Paper</span>
+                    </button>
+                    <button class="choice-btn scissors-btn" onclick="playGame('scissors')" id="scissorsBtn">
+                        <span class="choice-emoji">✂️</span>
+                        <span class="choice-name">Scissors</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Rules -->
+            <div class="rules-card">
+                <div class="text-center mb-2" style="font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.4);">Rules</div>
+                <div class="rule-item"><span>🪨</span> Rock crushes <span>✂️</span> Scissors</div>
+                <div class="rule-item"><span>📄</span> Paper covers <span>🪨</span> Rock</div>
+                <div class="rule-item"><span>✂️</span> Scissors cuts <span>📄</span> Paper</div>
+            </div>
+
+            <!-- Game History -->
+            <div class="history-section" id="historySection" style="display: none;">
+                <div class="history-title">Game History</div>
+                <div class="history-list" id="historyList"></div>
+            </div>
+
+            <!-- Reset -->
+            <div class="text-center pb-4 mt-2">
+                <button class="reset-btn" onclick="resetGame()">
+                    <i class="bi bi-arrow-clockwise"></i> Reset Game
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="demo_webgame.js"></script>
+
+</body>
+</html>
